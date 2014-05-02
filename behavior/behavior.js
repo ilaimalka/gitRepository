@@ -12,40 +12,51 @@ $(document).ready(
 function showQueris()
 {
 	event.preventDefault();
+	document.getElementById("bokeh").style.visibility="visible";
 	document.getElementById("Queries").style.display = "block";
 	document.getElementById("Docs").style.display = "none";
 	$( '#showLeft' ).removeClass('active');
 	$( '#cbp-spmenu-s1' ).removeClass('cbp-spmenu-open');
+	document.getElementById("bokeh").style.visibility="hidden";
 }
 
 function showDocs()
 {
 	event.preventDefault();
+	document.getElementById("bokeh").style.visibility="visible";
 	document.getElementById("Docs").style.display = "block";
 	document.getElementById("Queries").style.display = "none";
 	$( '#showLeft' ).removeClass('active');
 	$( '#cbp-spmenu-s1' ).removeClass('cbp-spmenu-open');
+	document.getElementById("bokeh").style.visibility="hidden";
 }
 
 function toggle_menu()
 {
 	event.preventDefault();
+	document.getElementById("bokeh").style.visibility="visible";
 	$( '#showLeft' ).toggleClass('active');
 	$( '#cbp-spmenu-s1' ).toggleClass('cbp-spmenu-open');
+	document.getElementById("bokeh").style.visibility="hidden";
 }
 
 function scroll_to_top()
 {
+	event.preventDefault();
+	document.getElementById("bokeh").style.visibility="visible";
 	$('html, body').animate({ scrollTop: 0 }, 'fast');
+	document.getElementById("bokeh").style.visibility="hidden";
 }
 
 function clean_form()
 {
 	event.preventDefault();
+	document.getElementById("bokeh").style.visibility="visible";
 	document.getElementById("business_name").value = "";
 	document.getElementById("classification").value = 1;
 	document.getElementById("street_name").value = "";
 	document.getElementById("street_num").value = "";
+	document.getElementById("bokeh").style.visibility="hidden";
 }
 
 function clearTable()

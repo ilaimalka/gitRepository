@@ -36,8 +36,6 @@ function toggle_menu()
 function scroll_to_top()
 {
 	$('html, body').animate({ scrollTop: 0 }, 'fast');
-	
-	$('.ac-container label').each(function(){$(this).removeClass("ac-open");});
 }
 
 function clean_form()
@@ -147,18 +145,11 @@ function get_results()
 
 }
 
-function load_doc(id, doc)
+function load_doc(doc)
 {
 	document.getElementById("bokeh").style.visibility="visible";
-	if($("#"+id).hasClass("ac-open"))
-	{
-		$("#"+id).removeClass("ac-open");
-	}
-	else
-	{
-		$("#"+id).addClass("ac-open");
-		document.getElementById("viewer-"+id).src = serverAddress+"ViewerJS/#../docs/"+doc;
-	}
+	document.getElementById("ac-viewer").innerHTML = "<iframe src = '"+serverAddress+"ViewerJS/#../docs/"+doc+"' width='300' height='500'></iframe>";
+	$('html, body').animate({ scrollTop: 0 }, 'fast');
 	document.getElementById("bokeh").style.visibility="hidden";
 }
 

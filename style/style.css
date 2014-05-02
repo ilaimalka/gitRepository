@@ -331,7 +331,7 @@ tbody tr:hover {
 		1px 0px 0px 0px rgba(255,255,255,0.9) inset, 
 		0px 2px 2px rgba(0,0,0,0.1);
 }
-
+/*
 .ac-container label.ac-open{
 	background: #c6e1ec;
 	color: #3d7489;
@@ -380,7 +380,7 @@ tbody tr:hover {
 .ac-container label.ac-open ~ article.ac-large{
 	height: 500px;
 }
-
+*/
 
 #bokeh {
 	font-size: 100px;

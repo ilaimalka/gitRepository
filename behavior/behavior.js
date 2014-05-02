@@ -37,7 +37,7 @@ function scroll_to_top()
 {
 	$('html, body').animate({ scrollTop: 0 }, 'fast');
 	
-	$('input[type="radio"]').each(function(){this.checked = false;});
+	$('.ac-container label').each(function(){$(this).removeClass("ac-open");});
 }
 
 function clean_form()
@@ -149,6 +149,7 @@ function get_results()
 
 function load_doc(id, doc)
 {
+	document.getElementById("bokeh").style.visibility="visible";
 	if($("#"+id).hasClass("ac-open"))
 	{
 		$("#"+id).removeClass("ac-open");
@@ -158,6 +159,7 @@ function load_doc(id, doc)
 		$("#"+id).addClass("ac-open");
 		document.getElementById("viewer-"+id).src = serverAddress+"ViewerJS/#../docs/"+doc;
 	}
+	document.getElementById("bokeh").style.visibility="hidden";
 }
 
 

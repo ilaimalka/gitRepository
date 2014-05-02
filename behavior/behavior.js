@@ -3,6 +3,7 @@ var serverAddress = "http://draganddrop.hostoi.com/";
 $(document).ready(
 		function()
 		{
+			document.getElementById("bokeh").style.visibility="visible";
 			document.getElementById("Queries").style.display = "block";
 			document.getElementById("Docs").style.display = "none";
 			document.getElementById("bokeh").style.visibility="hidden";
@@ -29,6 +30,7 @@ function showDocs()
 
 function toggle_menu()
 {
+	document.getElementById("bokeh").style.visibility="visible";
 	if($( '#showLeft' ).hasClass('active'))
 		$( '#showLeft' ).removeClass('active');
 	else
@@ -38,6 +40,7 @@ function toggle_menu()
 		$( '#cbp-spmenu-s1' ).removeClass('cbp-spmenu-open');
 	else
 		$( '#cbp-spmenu-s1' ).addClass('cbp-spmenu-open');
+	document.getElementById("bokeh").style.visibility="hidden";
 }
 
 function scroll_to_top()

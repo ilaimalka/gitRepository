@@ -147,9 +147,17 @@ function get_results()
 
 }
 
-function load_doc(viewr, doc)
+function load_doc(id, doc)
 {
-	document.getElementById(viewr).src = serverAddress+"ViewerJS/#../docs/"+doc;
+	if($("#"+id).hasClass("ac-open"))
+	{
+		$("#"+id).removeClass("ac-open");
+	}
+	else
+	{
+		$("#"+id).addClass("ac-open");
+		document.getElementById("viewer-"+id).src = serverAddress+"ViewerJS/#../docs/"+doc;
+	}
 }
 
 

@@ -9,7 +9,7 @@ html,body{
 
 #container
 {
-	width: 450px;
+	width: 350px;
 	height: 100%;
 }
 
@@ -23,7 +23,7 @@ html,body{
 
 #Docs
 {
-	width: 450px;
+	width: 350px;
 	position: relative;
 	top: 60px;
 	float: left;
@@ -31,7 +31,7 @@ html,body{
 
 .dl-menuwrapper {
 	background: #0d77b6;
-	width: 450px;
+	width: 350px;
 	height: 52.5px;
 	float: left;
 	position: fixed;

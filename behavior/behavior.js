@@ -117,13 +117,12 @@ function get_results()
 						{
 							 var row = table.insertRow(table.rows.length);
 							  var cell1 = row.insertCell();
-							  cell1.innerHTML = results.rows[i].business_name;
+							  cell1.innerHTML = results.rows[i].street_name + " " + results.rows[i].street_num;
 							  var cell2 = row.insertCell();
 							  cell2.innerHTML = results.rows[i].classification;
 							  var cell3 = row.insertCell();
-							  cell3.innerHTML = results.rows[i].street_name;
-							  var cell4 = row.insertCell();
-							  cell4.innerHTML = results.rows[i].street_num;
+							  cell3.innerHTML = results.rows[i].business_name;
+
 						}
 					}
 					else
@@ -131,7 +130,7 @@ function get_results()
 						var row = table.insertRow(table.rows.length);
 						var cell1 = row.insertCell();
 						cell1.innerHTML = "לא נמצאו תוצאות";
-						cell1.colSpan = 4;
+						cell1.colSpan = 3;
 					}
 				}
 				else

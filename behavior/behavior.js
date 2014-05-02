@@ -29,6 +29,7 @@ function showDocs()
 
 function toggle_menu()
 {
+	alert("hi");
 	$( '#showLeft' ).toggleClass('active');
 	$( '#cbp-spmenu-s1' ).toggleClass('cbp-spmenu-open');
 }

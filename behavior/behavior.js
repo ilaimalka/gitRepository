@@ -36,6 +36,8 @@ function toggle_menu()
 function scroll_to_top()
 {
 	$('html, body').animate({ scrollTop: 0 }, 'fast');
+	
+	$('input[type="radio"]').each(function(){this.checked = false;});
 }
 
 function clean_form()

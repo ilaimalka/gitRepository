@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>FireArea</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style/style.css" />
+	<script src="behavior/jquery-1.9.1.js"></script>  
+	<script src="behavior/behavior.js"></script>
+	<link rel="shortcut icon" href="images/fire.ico">
+</head>
+<body>
+	<div id="container">
+		<div id="dl-menu" class="dl-menuwrapper">
+				<button id="showLeft" class="dl-trigger" onclick="toggle_menu()">Open Menu</button>
+				<img src="images/uparrow.png" onclick="scroll_to_top();">
+		</div>
+		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+			<h3>Menu</h3>
+			<a href="#" onclick="showQueris()">Queries</a>
+			<a href="#" onclick="showDocs()">Docs</a>
+		</nav>
+		<ul id="bokeh">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+		</ul>
+		<div id="Queries">
+		<form class="cbp-mc-form">
+			<div class="cbp-mc-column">
+				<label>שם העסק</label>
+ 				<input type="text" id="business_name" placeholder="שם העסק">
+ 				<label>סוג העסק</label>	
+				 	<select id="classification" dir="rtl">
+				 		<option value="1">הכל</option>
+						<option value="2">אולמות / גני אירועים</option>
+						<option value="3">בתי אבות</option>
+						<option value="4">מגורים</option>
+						<option value="5">מוסדות חינוך</option>
+						<option value="6">מסחר</option>
+						<option value="7">ציבורי</option>
+						<option value="8">קניונים</option>
+						<option value="9">תעשייה</option>
+					</select>
+				<label>רחוב</label>
+	 			<input type="text" id="street_name" placeholder="רחוב">
+	 			<label>מספר</label>
+	 			<input type="text" id="street_num" placeholder="מספר">
+	 			<div class="cbp-mc-submit-wrap"></div>
+		</div>
+ 				<button onclick="clean_form();"><span>נקה</span></button>
+ 				<button onclick="get_results();"><span>הצג</span></button>
+	  	</form>
+ 	 		<table id="fire_area_table" dir="rtl">
+			<thead>
+				<tr>
+					<th>שם העסק</th>
+					<th>סוג העסק</th>
+					<th>רחוב</th>
+					<th>מספר</th>
+				</tr>
+			</thead>
+			<tbody id="fire_area_tbody">
+			</tbody>
+		</table>
+	  	</div>
+	  	<div id="Docs">
+	  		<section class="ac-container">
+				<div>
+					<input id="ac-1" name="accordion-1" type="radio" onclick="load_doc('viewer-ac-1', 'abc.odt')"/>
+					<label for="ac-1">abc</label>
+					<article class="ac-large">
+						<iframe id="viewer-ac-1" src = "" width='430' height='500'></iframe>
+					</article>
+				</div>
+				<div>
+					<input id="ac-2" name="accordion-1" type="radio" onclick="load_doc('viewer-ac-2', 'abd.odt')"/>
+					<label for="ac-2">abd</label>
+					<article class="ac-large">
+						<iframe id="viewer-ac-2" src = "" width='430' height='500'></iframe>
+					</article>
+				</div>
+			</section>
+		</div>
+	</div>
+</body>
+</html>

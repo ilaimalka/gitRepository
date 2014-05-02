@@ -14,6 +14,8 @@ function showQueris()
 	event.preventDefault();
 	document.getElementById("Queries").style.display = "block";
 	document.getElementById("Docs").style.display = "none";
+	$( '#showLeft' ).removeClass('active');
+	$( '#cbp-spmenu-s1' ).removeClass('cbp-spmenu-open');
 }
 
 function showDocs()
@@ -21,6 +23,8 @@ function showDocs()
 	event.preventDefault();
 	document.getElementById("Docs").style.display = "block";
 	document.getElementById("Queries").style.display = "none";
+	$( '#showLeft' ).removeClass('active');
+	$( '#cbp-spmenu-s1' ).removeClass('cbp-spmenu-open');
 }
 
 function toggle_menu()
@@ -103,7 +107,7 @@ function get_results()
 		data: sendInfo
 	}).done(function( results ) 
 			{
-				var table = document.getElementById("fire_area_table");
+				var table = document.getElementById("fire_area_tbody");
 				clearTable();
 				if(results)
 				{
@@ -111,7 +115,7 @@ function get_results()
 					{
 						for(var i = 0; i < results.rows.length; i++)
 						{
-							 var row = table.insertRow(1);
+							 var row = table.insertRow(table.rows.length);
 							  var cell1 = row.insertCell();
 							  cell1.innerHTML = results.rows[i].business_name;
 							  var cell2 = row.insertCell();
@@ -124,7 +128,7 @@ function get_results()
 					}
 					else
 					{
-						var row = table.insertRow(1);
+						var row = table.insertRow(table.rows.length);
 						var cell1 = row.insertCell();
 						cell1.innerHTML = "לא נמצאו תוצאות";
 						cell1.colSpan = 4;

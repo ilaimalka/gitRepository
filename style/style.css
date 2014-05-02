@@ -181,7 +181,7 @@ html,body{
 }
 
 .cbp-mc-column {
-	width: 400px;
+	width: 300px;
 	padding: 10px 25px;
 	float: left;
 }
@@ -202,7 +202,7 @@ html,body{
 	padding: 5px 10px;
 	color: #0d77b6;
 	display: block;
-	width: 375px;
+	width: 275px;
 	background: transparent;
 	border: 3px solid #0d77b6;
 	text-align: right;
@@ -222,7 +222,7 @@ html,body{
 	padding: 5px 10px;
 	color: #0d77b6;
 	display: block;
-	width: 400px;
+	width: 300px;
 	background: transparent;
 	border: 3px solid #0d77b6;
 }
@@ -235,7 +235,7 @@ html,body{
 	display: block;
 	margin-left: 50px;
 	padding: 0;
-	width: 150px;
+	width: 100px;
 	height: 70px;
 	border: 2px solid #0d77b6;
 	border-radius: 40px;
@@ -276,7 +276,7 @@ table {
 	padding-top: 40px;'
     border-collapse: collapse;
     margin-bottom: 3em;
-    width: 100%;
+    width: 350px;
     background: #fff;
 }
 td, th {
@@ -302,8 +302,9 @@ tbody tr:hover {
 
 
 .ac-container{
-	width: 430px;
-	margin: 10px auto 30px auto;
+	width: 300px;
+	margin-top: 10px;
+	margin-left: 20px;
 	text-align: left;
 }
 .ac-container label{

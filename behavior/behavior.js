@@ -29,9 +29,15 @@ function showDocs()
 
 function toggle_menu()
 {
-	alert("hi");
-	$( '#showLeft' ).toggleClass('active');
-	$( '#cbp-spmenu-s1' ).toggleClass('cbp-spmenu-open');
+	if($( '#showLeft' ).hasClass('active'))
+		$( '#showLeft' ).removeClass('active');
+	else
+		$( '#showLeft' ).addClass('active');
+	
+	if($( '#cbp-spmenu-s1' ).hasClass('cbp-spmenu-open'))
+		$( '#cbp-spmenu-s1' ).removeClass('cbp-spmenu-open');
+	else
+		$( '#cbp-spmenu-s1' ).addClass('cbp-spmenu-open');
 }
 
 function scroll_to_top()

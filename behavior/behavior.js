@@ -35,6 +35,7 @@ function toggle_menu()
 	document.getElementById("bokeh").style.visibility="visible";
 	$( '#cbp-spmenu-s1' ).toggleClass('cbp-spmenu-open');
 	document.getElementById("bokeh").style.visibility="hidden";
+	alert($( '#cbp-spmenu-s1' ).hasClass('cbp-spmenu-open'));
 }
 
 function scroll_to_top()

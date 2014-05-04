@@ -15,7 +15,6 @@ function showQueris()
 	document.getElementById("bokeh").style.visibility="visible";
 	document.getElementById("Queries").style.display = "block";
 	document.getElementById("Docs").style.display = "none";
-	$( '#showLeft' ).removeClass('active');
 	$( '#cbp-spmenu-s1' ).removeClass('cbp-spmenu-open');
 	document.getElementById("bokeh").style.visibility="hidden";
 }
@@ -26,7 +25,6 @@ function showDocs()
 	document.getElementById("bokeh").style.visibility="visible";
 	document.getElementById("Docs").style.display = "block";
 	document.getElementById("Queries").style.display = "none";
-	$( '#showLeft' ).removeClass('active');
 	$( '#cbp-spmenu-s1' ).removeClass('cbp-spmenu-open');
 	document.getElementById("bokeh").style.visibility="hidden";
 }
@@ -35,7 +33,6 @@ function toggle_menu()
 {
 	event.preventDefault();
 	document.getElementById("bokeh").style.visibility="visible";
-	$( '#showLeft' ).toggleClass('active');
 	$( '#cbp-spmenu-s1' ).toggleClass('cbp-spmenu-open');
 	document.getElementById("bokeh").style.visibility="hidden";
 }

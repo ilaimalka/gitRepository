@@ -6,7 +6,6 @@ $(document).ready(
 			document.getElementById("Queries").style.display = "block";
 			document.getElementById("Docs").style.display = "none";
 			document.getElementById("bokeh").style.visibility="hidden";
-			get_results();
 		}
 );
 

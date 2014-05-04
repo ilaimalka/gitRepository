@@ -45,7 +45,7 @@ html,body{
 	z-index: 1000;
 }
 
-.dl-menuwrapper button {
+.dl-menuwrapper a {
 	background: #0d77b6;
 	border: none;
 	width: 48px;
@@ -67,7 +67,7 @@ html,body{
 	cursor: pointer;
 }
 
-.dl-menuwrapper button:after {
+.dl-menuwrapper a:after {
 	content: '';
 	position: absolute;
 	width: 68%;

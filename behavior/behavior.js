@@ -3,40 +3,12 @@ var serverAddress = "http://draganddrop.hostoi.com/";
 $(document).ready(
 		function()
 		{
+			document.getElementById("cbp-spmenu-s1").style.display = "none";
 			document.getElementById("Queries").style.display = "block";
 			document.getElementById("Docs").style.display = "none";
 			document.getElementById("bokeh").style.visibility="hidden";
 		}
 );
-
-function showQueris()
-{
-	event.preventDefault();
-	document.getElementById("bokeh").style.visibility="visible";
-	document.getElementById("Queries").style.display = "block";
-	document.getElementById("Docs").style.display = "none";
-	$( '#cbp-spmenu-s1' ).removeClass('cbp-spmenu-open');
-	document.getElementById("bokeh").style.visibility="hidden";
-}
-
-function showDocs()
-{
-	event.preventDefault();
-	document.getElementById("bokeh").style.visibility="visible";
-	document.getElementById("Docs").style.display = "block";
-	document.getElementById("Queries").style.display = "none";
-	$( '#cbp-spmenu-s1' ).removeClass('cbp-spmenu-open');
-	document.getElementById("bokeh").style.visibility="hidden";
-}
-
-function toggle_menu()
-{
-	event.preventDefault();
-	document.getElementById("bokeh").style.visibility="visible";
-	$( '#cbp-spmenu-s1' ).toggleClass('cbp-spmenu-open');
-	document.getElementById("bokeh").style.visibility="hidden";
-	alert($( '#cbp-spmenu-s1' ).hasClass('cbp-spmenu-open'));
-}
 
 function scroll_to_top()
 {
@@ -45,6 +17,37 @@ function scroll_to_top()
 	$('html, body').animate({ scrollTop: 0 }, 'fast');
 	document.getElementById("bokeh").style.visibility="hidden";
 }
+
+function toggle_menu()
+{
+	event.preventDefault();
+	document.getElementById("bokeh").style.visibility="visible";
+	document.getElementById("cbp-spmenu-s1").style.display = "block";
+	document.getElementById("Queries").style.display = "none";
+	document.getElementById("Docs").style.display = "none";
+	document.getElementById("bokeh").style.visibility="hidden";
+}
+
+function showQueris()
+{
+	event.preventDefault();
+	document.getElementById("bokeh").style.visibility="visible";
+	document.getElementById("cbp-spmenu-s1").style.display = "none";
+	document.getElementById("Queries").style.display = "block";
+	document.getElementById("Docs").style.display = "none";
+	document.getElementById("bokeh").style.visibility="hidden";
+}
+
+function showDocs()
+{
+	event.preventDefault();
+	document.getElementById("bokeh").style.visibility="visible";
+	document.getElementById("cbp-spmenu-s1").style.display = "none";
+	document.getElementById("Queries").style.display = "none";
+	document.getElementById("Docs").style.display = "block";
+	document.getElementById("bokeh").style.visibility="hidden";
+}
+
 
 function clean_form()
 {

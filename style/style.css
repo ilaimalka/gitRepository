@@ -111,7 +111,7 @@ html,body{
 }
 
 .cbp-spmenu-vertical {
-	width: 240px;
+	width: 350px;
 	height: 100%;
 	top: 60px;
 	z-index: 1000;
@@ -120,23 +120,6 @@ html,body{
 .cbp-spmenu-vertical a {
 	border-bottom: 1px solid #258ecd;
 	padding: 1em;
-}
-
-.cbp-spmenu-left {
-	left: -240px;
-}
-
-.cbp-spmenu-left.cbp-spmenu-open {
-	left: 0px;
-}
-
-/* Transitions */
-
-.cbp-spmenu,
-.cbp-spmenu-push {
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	transition: all 0.3s ease;
 }
 
 .cbp-mc-form {

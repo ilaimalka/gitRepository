@@ -1,30 +1,29 @@
 var serverAddress = "http://draganddrop.hostoi.com/";
 
+var menuScroll;
+var queriesScroll;
+var docsScroll;
+
 $(document).ready(
 		function()
 		{
-			document.getElementById("cbp-spmenu-s1").style.display = "none";
+			queriesScroll = new IScroll('#Queries', { mouseWheel: true, click: true });
+			document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+			document.getElementById("Menu").style.display = "none";
 			document.getElementById("Queries").style.display = "block";
 			document.getElementById("Docs").style.display = "none";
 			document.getElementById("bokeh").style.visibility="hidden";
 		}
 );
 
-function scroll_to_top()
-{
-	event.preventDefault();
-	document.getElementById("bokeh").style.visibility="visible";
-	$('html, body').animate({ scrollTop: 0 }, 'fast');
-	document.getElementById("bokeh").style.visibility="hidden";
-}
-
 function toggle_menu()
 {
 	event.preventDefault();
 	document.getElementById("bokeh").style.visibility="visible";
-	document.getElementById("cbp-spmenu-s1").style.display = "block";
+	document.getElementById("Menu").style.display = "block";
 	document.getElementById("Queries").style.display = "none";
 	document.getElementById("Docs").style.display = "none";
+	menuScroll = new IScroll('#Menu', { mouseWheel: true, click: true });
 	document.getElementById("bokeh").style.visibility="hidden";
 }
 
@@ -32,9 +31,10 @@ function showQueris()
 {
 	event.preventDefault();
 	document.getElementById("bokeh").style.visibility="visible";
-	document.getElementById("cbp-spmenu-s1").style.display = "none";
+	document.getElementById("Menu").style.display = "none";
 	document.getElementById("Queries").style.display = "block";
 	document.getElementById("Docs").style.display = "none";
+	queriesScroll = new IScroll('#Queries', { mouseWheel: true, click: true });
 	document.getElementById("bokeh").style.visibility="hidden";
 }
 
@@ -42,9 +42,10 @@ function showDocs()
 {
 	event.preventDefault();
 	document.getElementById("bokeh").style.visibility="visible";
-	document.getElementById("cbp-spmenu-s1").style.display = "none";
+	document.getElementById("Menu").style.display = "none";
 	document.getElementById("Queries").style.display = "none";
 	document.getElementById("Docs").style.display = "block";
+	docsScroll = new IScroll('#Docs', { mouseWheel: true, click: true });
 	document.getElementById("bokeh").style.visibility="hidden";
 }
 
@@ -62,6 +63,7 @@ function clean_form()
 
 function clearTable()
 {
+	event.preventDefault();
  var table = document.getElementById('fire_area_table');
  while ( table.rows.length > 1 )
  {
@@ -154,6 +156,8 @@ function get_results()
 					cell1.colSpan = 4;
 				}
 				document.getElementById("bokeh").style.visibility="hidden";
+				queriesScroll = new IScroll('#Queries', { mouseWheel: true, click: true });
+				queriesScroll.scrollToElement(table);
 			});
 
 }
@@ -161,8 +165,10 @@ function get_results()
 function load_doc(doc)
 {
 	document.getElementById("bokeh").style.visibility="visible";
-	document.getElementById("ac-viewer").innerHTML = "<iframe src = '"+serverAddress+"ViewerJS/#../docs/"+doc+"' width='300' height='500'></iframe>";
-	$('html, body').animate({ scrollTop: 0 }, 'fast');
+	var acViewer = document.getElementById("ac-viewer");
+	acViewer.innerHTML = "<iframe src = '"+serverAddress+"ViewerJS/#../docs/"+doc+"' width='300' height='500'></iframe>";
+	docsScroll = new IScroll('#Docs', { mouseWheel: true, click: true });
+	queriesScroll.scrollToElement(acViewer);
 	document.getElementById("bokeh").style.visibility="hidden";
 }
 

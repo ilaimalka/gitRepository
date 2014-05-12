@@ -259,7 +259,14 @@ tbody tr:hover {
 	padding-left: 20px;
 	text-align: left;
 }
-.ac-container label{
+
+.ac-container ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+.ac-container ul li{
 	font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
 	padding: 5px 20px;
 	position: relative;

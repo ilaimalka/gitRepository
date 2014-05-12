@@ -16,6 +16,18 @@ $(document).ready(
 		}
 );
 
+function scroll_to_top()
+{
+	if(document.getElementById("Queries").style.display == "block")
+	{
+		queriesScroll.scrollToElement(".cbp-mc-form");
+	}
+	else if (document.getElementById("Docs").style.display == "block")
+	{
+		docsScroll.scrollToElement(".ac-container");
+	}
+}
+
 function toggle_menu()
 {
 	event.preventDefault();
@@ -168,7 +180,7 @@ function load_doc(doc)
 	var acViewer = document.getElementById("ac-viewer");
 	acViewer.innerHTML = "<iframe src = '"+serverAddress+"ViewerJS/#../docs/"+doc+"' width='300' height='500'></iframe>";
 	docsScroll = new IScroll('#Docs', { mouseWheel: true, click: true });
-	queriesScroll.scrollToElement(acViewer);
+	docsScroll.scrollToElement(acViewer);
 	document.getElementById("bokeh").style.visibility="hidden";
 }
 

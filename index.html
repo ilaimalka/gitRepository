@@ -12,8 +12,8 @@
 </head>
 <body>
 		<div id="dl-menu" class="dl-menuwrapper">
-				<a id="showLeft" class="dl-trigger active" src="#" onclick="toggle_menu()">Open Menu</a>
 				<img src="images/uparrow.png" onclick="scroll_to_top();">
+				<label id="lblDocument">הצג עבור: לא נבחר</label>
 		</div>
 		<ul id="bokeh">
 				<li></li>
@@ -21,12 +21,6 @@
 				<li></li>
 				<li></li>
 		</ul>
-		<div id="Menu" class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left " >
-			<div id="scroller">
-				<a href="#" onclick="showQueris()">Queries</a>
-				<a href="#" onclick="showDocs()">Docs</a>
-			</div>
-		</div>
 		<div id="Queries">
 		<div id="scroller">
 		<form class="cbp-mc-form">
@@ -53,9 +47,14 @@
 	 			<button onclick="clean_form();"><span>נקה</span></button>
  				<button onclick="get_results();"><span>הצג</span></button>
  				
+ 				<button onclick="load_doc('homasAppendix');"><span>נספח חומס</span></button>
+ 				<button onclick="load_doc('betAppendix');"><span>נספח ב</span></button>
  			<table id="fire_area_table" dir="rtl">
 			<thead>
 				<tr>
+					<th style='visibility: hidden'>מזהה</th>
+					<th style='visibility: hidden'>נספח ב</th>
+					<th style='visibility: hidden'>נספח חומס</th>
 					<th>שם העסק</th>
 					<th>סוג העסק</th>
 					<th>רחוב</th>
@@ -64,32 +63,12 @@
 			<tbody id="fire_area_tbody">
 			</tbody>
 		</table>
-
+		<div id="ac-viewer"></div>
+		<label>כל הזכויות שמורות למיכאל נפתלייב</label>
 		</div>		
 	  	</form>
 		</div>
 	  	</div>
-	  	<div id="Docs">
-	  		<div id="scroller">
-	  		<div class="ac-container">
-	  			<ul>
-				<li id="ac-1" onclick="load_doc('example1.odt')">example1</li>
-				<li id="ac-2" onclick="load_doc('example2.odt')">example2</li>
-								<li id="ac-1" onclick="load_doc('example1.odt')">example1</li>
-				<li id="ac-2" onclick="load_doc('example2.odt')">example2</li>
-								<li id="ac-1" onclick="load_doc('example1.odt')">example1</li>
-				<li id="ac-2" onclick="load_doc('example2.odt')">example2</li>
-								<li id="ac-1" onclick="load_doc('example1.odt')">example1</li>
-				<li id="ac-2" onclick="load_doc('example2.odt')">example2</li>
-								<li id="ac-1" onclick="load_doc('example1.odt')">example1</li>
-				<li id="ac-2" onclick="load_doc('example2.odt')">example2</li>
-								<li id="ac-1" onclick="load_doc('example1.odt')">example1</li>
-				<li id="ac-2" onclick="load_doc('example2.odt')">example2</li>
-				</ul>
-				<div id="ac-viewer"></div>
-			</div>
-			</div>
-		</div>
 		<div id="footer"></div>
 </body>
 </html>

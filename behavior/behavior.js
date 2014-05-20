@@ -1,66 +1,23 @@
 var serverAddress = "http://draganddrop.hostoi.com/";
 
-var menuScroll;
 var queriesScroll;
-var docsScroll;
+var acViewerId = 0;
+var betAppendix;
+var homasAppendix;
 
 $(document).ready(
 		function()
 		{
 			queriesScroll = new IScroll('#Queries', { mouseWheel: true, click: true });
 			document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-			document.getElementById("Menu").style.display = "none";
-			document.getElementById("Queries").style.display = "block";
-			document.getElementById("Docs").style.display = "none";
 			document.getElementById("bokeh").style.visibility="hidden";
 		}
 );
 
 function scroll_to_top()
 {
-	if(document.getElementById("Queries").style.display == "block")
-	{
-		queriesScroll.scrollToElement(".cbp-mc-form");
-	}
-	else if (document.getElementById("Docs").style.display == "block")
-	{
-		docsScroll.scrollToElement(".ac-container");
-	}
+	queriesScroll.scrollToElement(".cbp-mc-form");
 }
-
-function toggle_menu()
-{
-	event.preventDefault();
-	document.getElementById("bokeh").style.visibility="visible";
-	document.getElementById("Menu").style.display = "block";
-	document.getElementById("Queries").style.display = "none";
-	document.getElementById("Docs").style.display = "none";
-	menuScroll = new IScroll('#Menu', { mouseWheel: true, click: true });
-	document.getElementById("bokeh").style.visibility="hidden";
-}
-
-function showQueris()
-{
-	event.preventDefault();
-	document.getElementById("bokeh").style.visibility="visible";
-	document.getElementById("Menu").style.display = "none";
-	document.getElementById("Queries").style.display = "block";
-	document.getElementById("Docs").style.display = "none";
-	queriesScroll = new IScroll('#Queries', { mouseWheel: true, click: true });
-	document.getElementById("bokeh").style.visibility="hidden";
-}
-
-function showDocs()
-{
-	event.preventDefault();
-	document.getElementById("bokeh").style.visibility="visible";
-	document.getElementById("Menu").style.display = "none";
-	document.getElementById("Queries").style.display = "none";
-	document.getElementById("Docs").style.display = "block";
-	docsScroll = new IScroll('#Docs', { mouseWheel: true, click: true });
-	document.getElementById("bokeh").style.visibility="hidden";
-}
-
 
 function clean_form()
 {
@@ -71,16 +28,6 @@ function clean_form()
 	document.getElementById("street_name").value = "";
 	document.getElementById("street_num").value = "";
 	document.getElementById("bokeh").style.visibility="hidden";
-}
-
-function clearTable()
-{
-	event.preventDefault();
- var table = document.getElementById('fire_area_table');
- while ( table.rows.length > 1 )
- {
-	 table.deleteRow(1);
- }
 }
 
 function get_results()
@@ -134,30 +81,45 @@ function get_results()
 		data: sendInfo
 	}).done(function( results ) 
 			{
+				var acViewer = document.getElementById("ac-viewer");
+				acViewer.innerHTML = "";
+				
+				acViewerId = 0;
+				
 				var table = document.getElementById("fire_area_tbody");
-				clearTable();
 				if(results)
 				{
 					if(results.status == 1)
 					{
+						var tbody = "";
 						for(var i = 0; i < results.rows.length; i++)
 						{
-							 var row = table.insertRow(table.rows.length);
-							  var cell1 = row.insertCell();
-							  cell1.innerHTML = results.rows[i].street_name + " " + results.rows[i].street_num;
-							  var cell2 = row.insertCell();
-							  cell2.innerHTML = results.rows[i].classification;
-							  var cell3 = row.insertCell();
-							  cell3.innerHTML = results.rows[i].business_name;
-
+							tbody += "<tr id='tr"+results.rows[i].id+"'>";
+							tbody += "<td style='visibility:hidden'>"+results.rows[i].id+"</td>";
+							tbody += "<td style='visibility:hidden'>"+results.rows[i].bet_appendix+"</td>";
+							tbody += "<td style='visibility:hidden'>"+results.rows[i].homas_appendix+"</td>";
+							tbody += "<td>"+results.rows[i].business_name+"</td>";
+							tbody += "<td>"+results.rows[i].classification+"</td>";
+							tbody += "<td>"+results.rows[i].street_name + " " + results.rows[i].street_num+"</td>";
+							tbody += "</tr>";
 						}
+						table.innerHTML = tbody;
+						
+						$(table).children().each(function(){
+							var trid = this.id;
+							$(this).click(function(){selectRecord(trid);});
+						});
 					}
 					else
 					{
-						var row = table.insertRow(table.rows.length);
-						var cell1 = row.insertCell();
-						cell1.innerHTML = "לא נמצאו תוצאות";
-						cell1.colSpan = 3;
+						var tbody = "<tr>";
+						tbody += "<td style='visibility:hidden'></td>";
+						tbody += "<td style='visibility:hidden'></td>";
+						tbody += "<td style='visibility:hidden'></td>";
+						tbody += "<td colspan='3'>לא נמצאו תוצאות</td>";
+						tbody += "</tr>";
+						table.innerHTML = tbody;
+				
 					}
 				}
 				else
@@ -174,14 +136,32 @@ function get_results()
 
 }
 
-function load_doc(doc)
+function load_doc(type)
 {
+	event.preventDefault();
 	document.getElementById("bokeh").style.visibility="visible";
 	var acViewer = document.getElementById("ac-viewer");
-	acViewer.innerHTML = "<iframe src = '"+serverAddress+"ViewerJS/#../docs/"+doc+"' width='300' height='500'></iframe>";
-	docsScroll = new IScroll('#Docs', { mouseWheel: true, click: true });
-	docsScroll.scrollToElement(acViewer);
+	if(acViewerId != 0)
+	{
+		if(type == 'homasAppendix')
+			acViewer.innerHTML = "<iframe src = '"+serverAddress+"ViewerJS/#../docs/"+homasAppendix+".odt' width='300' height='500'></iframe>";
+		else
+			acViewer.innerHTML = "<iframe src = '"+serverAddress+"ViewerJS/#../docs/"+betAppendix+".odt' width='300' height='500'></iframe>";	
+	}
+	else
+	{
+		acViewer.innerHTML = "<label style='color:red'>יש לבחור שורה מהטבלה</label>";
+	}
+	queriesScroll = new IScroll('#Queries', { mouseWheel: true, click: true });
+	queriesScroll.scrollToElement(acViewer);
 	document.getElementById("bokeh").style.visibility="hidden";
+}
+
+function selectRecord(trid)
+{
+	acViewerId = $("#"+trid).children()[0].innerHTML;
+	betAppendix = $("#"+trid).children()[1].innerHTML;
+	homasAppendix = $("#"+trid).children()[2].innerHTML;
 }
 
 

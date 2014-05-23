@@ -12,8 +12,10 @@
 </head>
 <body>
 		<div id="dl-menu" class="dl-menuwrapper">
-				<img src="images/uparrow.png" onclick="scroll_to_top();">
-				<label id="lblDocument">הצג עבור: לא נבחר</label>
+				<img src="images/left-logo.gif" style="position: absolute; left: 10px;">
+				<label style="top: 10px;position: absolute;left: 70px;font-weight: bold;">הרשות הארצית לכבאות והצלה</label>
+				<label style="top: 30px;position: absolute;left: 90px;font-weight: bold;">תחנה אזורית - ראשון לציון</label>
+				<img src="images/right-logo.gif" style="position: absolute;left: 270px;">
 		</div>
 		<ul id="bokeh">
 				<li></li>
@@ -28,27 +30,17 @@
 				<label>שם העסק</label>
  				<input type="text" id="business_name" placeholder="שם העסק">
  				<label>סוג העסק</label>	
-				 	<select id="classification" dir="rtl">
-				 		<option value="1">הכל</option>
-						<option value="2">אולמות / גני אירועים</option>
-						<option value="3">בתי אבות</option>
-						<option value="4">מגורים</option>
-						<option value="5">מוסדות חינוך</option>
-						<option value="6">מסחר</option>
-						<option value="7">ציבורי</option>
-						<option value="8">קניונים</option>
-						<option value="9">תעשייה</option>
-					</select>
+ 				<input type="text" id="classification" placeholder="סוג עסק">
 				<label>רחוב</label>
 	 			<input type="text" id="street_name" placeholder="רחוב">
 	 			<label>מספר</label>
 	 			<input type="text" id="street_num" placeholder="מספר">
 	 			
-	 			<button onclick="clean_form();"><span>נקה</span></button>
- 				<button onclick="get_results();"><span>הצג</span></button>
+	 			<button id="btnCleanForm" onclick="clean_form();"><span>נקה</span></button>
+ 				<button id="btnGetResults" onclick="get_results();"><span>הצג</span></button>
  				
- 				<button onclick="load_doc('homasAppendix');"><span>נספח חומס</span></button>
- 				<button onclick="load_doc('betAppendix');"><span>נספח ב</span></button>
+ 				<button id="btnHomasAppendix" onclick="load_doc('homasAppendix');"><span>נספח חומס</span></button>
+ 				<button id="btnBetAppendix" onclick="load_doc('betAppendix');"><span>נספח ב</span></button>
  			<table id="fire_area_table" dir="rtl">
 			<thead>
 				<tr>
@@ -69,6 +61,10 @@
 	  	</form>
 		</div>
 	  	</div>
-		<div id="footer"></div>
+		<div id="footer">
+			<img src="images/uparrow.png" onclick="scroll_to_top();">
+			<img src="images/table.png" onclick="scroll_to_table();">
+			<img src="images/document.png" onclick="scroll_to_document();">
+		</div>
 </body>
 </html>

@@ -18,17 +18,6 @@ html,body{
 	overflow: hidden;
 }
 
-#Docs
-{
-	width: 100%;
-	position: absolute;
-	top: 60px;
-	left: 0;
-	bottom: 48px;
-	z-index: 1;
-	overflow: hidden;
-}
-
 .dl-menuwrapper {
 	background: #0d77b6;
 	position: absolute;
@@ -40,79 +29,23 @@ html,body{
 	padding-top: 7.5px;
 }
 
-.dl-menuwrapper a {
-	background: #0d77b6;
-	border: none;
-	width: 48px;
-	height: 45px;
-	text-indent: -900em;
-	overflow: hidden;
-	position: relative;
-	cursor: pointer;
-	outline: none;
-	margin-left: 15px;
-	float: left;
+.dl-menuwrapper img{
+	width: 50px;
+	height: 40px;
 }
 
-.dl-menuwrapper img {
-	margin-left: 15px;
+.dl-menuwrapper label{
+	color: white;
+}
+
+
+#footer img {
+	margin-left: 50px;
+	margin-top: 5px;
 	float: left;
 	height: 37px;
 	width: 37px;
 	cursor: pointer;
-}
-
-.dl-menuwrapper a:after {
-	content: '';
-	position: absolute;
-	width: 68%;
-	height: 5px;
-	background: #fff;
-	top: 10px;
-	left: 16%;
-	box-shadow: 
-		0 10px 0 #fff, 
-		0 20px 0 #fff;
-}
-
-.cbp-spmenu {
-	background: #47a3da;
-	position: fixed;
-}
-
-.cbp-spmenu h3 {
-	color: #afdefa;
-	font-size: 1.9em;
-	padding: 20px;
-	margin: 0;
-	font-weight: 300;
-	background: #0d77b6;
-}
-
-.cbp-spmenu a {
-	display: block;
-	color: #fff;
-	font-size: 1.1em;
-	font-weight: 300;
-}
-
-.cbp-spmenu a:hover {
-	background: #258ecd;
-}
-
-.cbp-spmenu a:active {
-	background: #afdefa;
-	color: #47a3da;
-}
-
-.cbp-spmenu-vertical {
-	width: 100%;
-	top: 60px;
-}
-
-.cbp-spmenu-vertical a {
-	border-bottom: 1px solid #258ecd;
-	padding: 1em;
 }
 
 .cbp-mc-form {
@@ -229,7 +162,6 @@ table {
 	padding-top: 40px;
     margin-bottom: 3em;
     width: 350px;
-    background: #fff;
 }
 td, th {
     padding: 0.75em 1.5em;

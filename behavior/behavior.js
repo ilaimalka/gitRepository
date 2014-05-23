@@ -132,9 +132,9 @@ function load_doc(type)
 	if(acViewerId != 0)
 	{
 		if(type == 'homasAppendix')
-			acViewer.innerHTML = "<iframe src = 'file:///sdcard/FireArea/ViewerJS/#/"+homasAppendix+".odt' width='300' height='500'></iframe>";
+			acViewer.innerHTML = "<iframe src = 'file:///sdcard/FireArea/aaa.pdf' width='300' height='500'></iframe>";
 		else
-			acViewer.innerHTML = "<iframe src = 'file:///sdcard/FireArea/ViewerJS/#/"+betAppendix+".odt' width='300' height='500'></iframe>";	
+			acViewer.innerHTML = "<iframe src = 'file:///sdcard/FireArea/aaa.pdf' width='300' height='500'></iframe>";	
 	}
 	else
 	{
